@@ -1,4 +1,4 @@
-package com.tp4.models;
+package com.tp4.tp.models;
 
 import java.util.Date;
 

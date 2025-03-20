@@ -1,4 +1,4 @@
-package com.tp4.controllers;
+package com.tp4.tp.controllers;
 
 import java.util.Date;
 
@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tp4.Repesetories.EtudiantRepository;
-import com.tp4.models.Etudiant;
+import com.tp4.tp.Repesetories.EtudiantRepository;
+import com.tp4.tp.models.Etudiant;
+
 
 @Controller
-@RequestMapping("/ejjaw")
-public class mainController {
-    @Autowired
+@RequestMapping("/student")
+public class studentController {
+     @Autowired
     EtudiantRepository etudiantRepository;
     
     @RequestMapping("/addstudent")
@@ -25,7 +26,11 @@ public class mainController {
         return "Student added";
     
 
-
+    }
+    @RequestMapping("/getAllstudents")
+    @ResponseBody
+    public Iterable<Etudiant> getAllStudents(){
+        return etudiantRepository.findAll();
+    }
     
 }
-    }

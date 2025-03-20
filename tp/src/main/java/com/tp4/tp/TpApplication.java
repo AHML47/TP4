@@ -9,7 +9,9 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 @Configuration
 @ComponentScan("com.tp4")
-@EntityScan(basePackages = "com.tp4.models")
+
+@EntityScan(basePackages = "com.tp4")
+
 public class TpApplication {
 
 	public static void main(String[] args) {
