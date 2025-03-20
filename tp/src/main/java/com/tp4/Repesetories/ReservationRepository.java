@@ -1,4 +1,4 @@
-package com.tp4.tp;
+package com.tp4.Repesetories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

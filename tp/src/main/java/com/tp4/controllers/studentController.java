@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tp4.Repesetories.EtudiantRepository;
 import com.tp4.models.Etudiant;
-import com.tp4.tp.EtudiantRepository;
 
 
 @Controller

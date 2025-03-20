@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import com.tp4.Repesetories.FoyerRepository;
+import com.tp4.Repesetories.UniversiteRepository;
 import com.tp4.models.Foyer;
 import com.tp4.models.Universite;
-import com.tp4.tp.FoyerRepository;
-import com.tp4.tp.UniversiteRepository;
 
 @Controller
 @RequestMapping("/universite")
