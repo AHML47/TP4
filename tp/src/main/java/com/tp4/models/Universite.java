@@ -17,7 +17,8 @@ public class Universite {
     private Long idUniversite;
     private String nomUniversite;
     private String adresse;
-
+    @OneToOne
+    @JoinColumn(name = "foyer_id")
     private Foyer foyer;
 
     public Universite() {

@@ -23,7 +23,7 @@ public class Bloc {
     private Long capaciteBloc;
 
     @ManyToOne
-    @JoinColumn(name = "foyer_id")
+    @JoinColumn(name = "foyer_id", referencedColumnName = "idFoyer")
     private Foyer foyer;
 
     @OneToMany(mappedBy = "bloc", cascade = CascadeType.ALL)
