@@ -22,10 +22,10 @@ public class Foyer {
     private Long capaciteFoyer;
 
     @OneToOne
-    @JoinColumn(name = "universite_id")
+    @JoinColumn(name = "universite_id" , referencedColumnName = "idUniversite")
     private Universite universite;
 
-    @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL , orphanRemoval = true)
     private List<Bloc> blocs;
 
     public Foyer() {
