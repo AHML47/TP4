@@ -24,8 +24,9 @@ public class UniversiteController {
     public String addUniversite(@RequestParam String nomUniversite, @RequestParam String adresse , @RequestParam Long idF) {
         Foyer foyer = foyerRepository.findById(idF).orElse(null);
         if (foyer == null) {
-            foyer = new Foyer(1000);
-            foyerRepository.save(foyer);
+            Long id = 1L;
+            foyer = foyerRepository.findById(id).orElse(null);
+            
         }
             Universite universite = new Universite(nomUniversite, adresse, foyer);
             universiteRepository.save(universite);

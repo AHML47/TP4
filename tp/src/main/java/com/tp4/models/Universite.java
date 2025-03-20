@@ -18,7 +18,7 @@ public class Universite {
     private String nomUniversite;
     private String adresse;
     @OneToOne
-    @JoinColumn(name = "foyer_id")
+    @JoinColumn(name = "foyer_id", referencedColumnName = "idFoyer")
     private Foyer foyer;
 
     public Universite() {
