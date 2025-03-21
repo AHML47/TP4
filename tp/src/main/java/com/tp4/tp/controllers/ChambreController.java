@@ -22,7 +22,7 @@ public class ChambreController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public String addChambre(@RequestParam Long numeroChambre, @RequestParam String typeC, @RequestParam Long idBloc) {
+    public String addChambre(@RequestParam String numeroChambre, @RequestParam String typeC, @RequestParam Long idBloc) {
         Bloc bloc = blocRepository.findById(idBloc).orElse(null);
         if (bloc == null) {
             return "Bloc not found";

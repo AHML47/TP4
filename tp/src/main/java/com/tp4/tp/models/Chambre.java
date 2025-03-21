@@ -1,6 +1,8 @@
 package com.tp4.tp.models;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -20,21 +22,23 @@ public class Chambre {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idChambre;
-    private Long numeroChambre;
+    private String numeroChambre;
 
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
 
     @ManyToOne
     @JoinColumn(name = "bloc_id")
+    @JsonIgnoreProperties({"nomBloc", "capaciteBloc", "foyer","chambres"})
     private Bloc bloc;
 
+    @JsonIgnoreProperties({"anneeUniversitaire", "estValide", "chambre","etudiant"})
     @OneToMany(mappedBy = "chambre", cascade = CascadeType.ALL)
     private List<Reservation> reservations;
 
     public Chambre() {
     }
-    public Chambre(Long numeroChambre, TypeChambre typeC, Bloc bloc) {
+    public Chambre(String numeroChambre, TypeChambre typeC, Bloc bloc) {
         this.numeroChambre = numeroChambre;
         this.typeC = typeC;
         this.bloc = bloc;
@@ -48,11 +52,11 @@ public class Chambre {
         this.idChambre = idChambre;
     }
 
-    public Long getNumeroChambre() {
+    public String getNumeroChambre() {
         return numeroChambre;
     }
 
-    public void setNumeroChambre(Long numeroChambre) {
+    public void setNumeroChambre(String numeroChambre) {
         this.numeroChambre = numeroChambre;
     }
 

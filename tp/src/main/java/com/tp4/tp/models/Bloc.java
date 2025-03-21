@@ -30,6 +30,7 @@ public class Bloc {
     @JoinColumn(name = "foyer_id", referencedColumnName = "idFoyer")
     private Foyer foyer;
 
+    @JsonIgnoreProperties({"numeroChambre", "typeC", "bloc","reservations"})
     @OneToMany(mappedBy = "bloc", cascade = CascadeType.ALL)
     private List<Chambre> chambres;
 
