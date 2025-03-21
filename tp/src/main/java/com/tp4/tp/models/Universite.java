@@ -1,5 +1,7 @@
 package com.tp4.tp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class Universite {
     private String nomUniversite;
     private String adresse;
     @OneToOne
+    @JsonIgnoreProperties({"nomFoyer", "capaciteFoyer", "blocs","universite"})
     @JoinColumn(name = "foyer_id", referencedColumnName = "idFoyer")
     private Foyer foyer;
 

@@ -2,6 +2,9 @@ package com.tp4.tp.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,10 +25,15 @@ public class Foyer {
     private Long capaciteFoyer;
 
     @OneToOne
+    @JsonIgnoreProperties({"nomUniversite", "adresse", "foyer"})
     @JoinColumn(name = "universite_id" , referencedColumnName = "idUniversite")
     private Universite universite;
 
+
+
     @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL , orphanRemoval = true)
+    @JsonIgnoreProperties({"nomBloc", "capaciteBloc", "foyer","chambres"})
+    @JsonManagedReference
     private List<Bloc> blocs;
 
     public Foyer() {

@@ -2,6 +2,9 @@ package com.tp4.tp.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +26,7 @@ public class Bloc {
     private Long capaciteBloc;
 
     @ManyToOne
+    @JsonIgnoreProperties({"nomFoyer", "capaciteFoyer", "blocs","universite"})
     @JoinColumn(name = "foyer_id", referencedColumnName = "idFoyer")
     private Foyer foyer;
 
